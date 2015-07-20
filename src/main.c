@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define DEBUG true
 #define FILENAME "file.jar"
@@ -14,7 +15,8 @@ int main(void) {
 
 	fclose(file);
 
-	char* command = "java -jar ";
+	char command[32];
+	strcpy(command, "java -jar ");
 	strcat(command, FILENAME);
 
 	system(command);
