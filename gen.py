@@ -9,10 +9,15 @@ file = args.file
 
 if __name__ == "__main__":
     
+    array = ""
+    
     with open(file, "rb") as f:
         while True:
-            byte =  f.read(1);
+            byte = f.read(1)
             if not byte:
                 break
             
-            char = chr(int(byte, 16))
+            char = "0x" + "".join("{:02x}".format(ord(byte)))
+            array += char + ", "
+            
+    print(array)
